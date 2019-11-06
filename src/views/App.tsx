@@ -4,6 +4,7 @@ import AddExpensForm from '../components/AddExpensForm';
 import AppWrapper from '../components/AppWrapper';
 import ExpensesList from '../components/ExpensesList';
 import Header from '../components/Header';
+import Summary from '../components/Summary';
 import { GlobalStyles } from '../styles/global/GlobalStyles';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
 				<Header />
 				<AddExpensForm />
 				<ExpensesList />
+				<Summary />
 			</AppWrapper>
 		</div>
 	);
