@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { MediaQuery } from './const/Media';
 
 export const AppWrapperStyle = styled.div`
 	position: relative;
@@ -7,4 +8,8 @@ export const AppWrapperStyle = styled.div`
 	flex-wrap: wrap;
 	max-width: 900px;
 	padding: 40px;
+
+	${MediaQuery.PHONE} {
+		padding: 0;
+	}
 `;

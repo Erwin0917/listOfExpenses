@@ -1,7 +1,11 @@
 import { Formik } from 'formik';
 import React from 'react';
-import { AddExpensFormStyles, InputWrapperStyles, LabelStyles } from '../styles/AddExpensFormStyle';
-import { InputStyles } from '../styles/UI/InputStyles';
+import {
+	AddExpensFormStyles,
+	AddExpensInputStyles,
+	InputWrapperStyles,
+	LabelStyles
+} from '../styles/AddExpensFormStyle';
 import Button from './UI/Button';
 
 const AddExpensForm = () => {
@@ -26,7 +30,7 @@ const AddExpensForm = () => {
 					<form className='addExpenseForm' onSubmit={handleSubmit}>
 						<InputWrapperStyles>
 							<LabelStyles htmlFor={titleInputName}>Title of transaction</LabelStyles>
-							<InputStyles
+							<AddExpensInputStyles
 								id={titleInputName}
 								type={titleInputName}
 								name={titleInputName}
@@ -37,7 +41,7 @@ const AddExpensForm = () => {
 						</InputWrapperStyles>
 						<InputWrapperStyles>
 							<LabelStyles htmlFor={amountInputnae}>Amount (in PLN)</LabelStyles>
-							<InputStyles
+							<AddExpensInputStyles
 								id={amountInputnae}
 								type={amountInputnae}
 								name={amountInputnae}

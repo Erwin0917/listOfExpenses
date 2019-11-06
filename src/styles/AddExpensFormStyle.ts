@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import Input from '../components/UI/Input';
+import { MediaQuery } from './const/Media';
+import { InputStyles } from './UI/InputStyles';
 
 export const AddExpensFormStyles = styled.div`
 	width: 100%;
@@ -14,8 +15,12 @@ export const AddExpensFormStyles = styled.div`
 	}
 `;
 
-export const InputStyles = styled(Input)`
+export const AddExpensInputStyles = styled(InputStyles)`
 	width: 250px;
+
+	${MediaQuery.PHONE} {
+		margin: 10px 0;
+	}
 `;
 
 export const LabelStyles = styled.label`
@@ -30,4 +35,9 @@ export const InputWrapperStyles = styled.div`
 	display: flex;
 	align-items: center;
 	margin: 20px 0;
+
+	${MediaQuery.TABLET} {
+		width: 100%;
+		flex-wrap: wrap;
+	}
 `;

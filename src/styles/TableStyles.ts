@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import { Color } from './const/Color';
+import { MediaQuery } from './const/Media';
 
 export const TableStyles = styled.div`
 	.ReactTable {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-
 		.options__column {
 			justify-content: center;
 		}
@@ -478,5 +478,23 @@ export const TableStyles = styled.div`
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+	}
+
+	${MediaQuery.TABLET} {
+		.ReactTable .-pagination .-center {
+			justify-content: space-between;
+		}
+		.ReactTable .-pagination .-previous,
+		.ReactTable .-pagination .-next {
+			order: 2;
+			flex-basis: 33%;
+			flex-grow: 0;
+			margin-top: 20px;
+		}
+		.ReactTable .-pagination .-center {
+			order: 1;
+			width: 100%;
+			flex-basis: 100%;
+		}
 	}
 `;
