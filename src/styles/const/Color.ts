@@ -4,5 +4,6 @@ export enum Color {
 
 	TEXT_DARK = '#1e1e1e',
 
-	ACCENT_POSITIVE = '#2ebd65'
+	ACCENT_POSITIVE = '#2ebd65',
+	ACCENT_FIRST = '#0f55eb'
 }

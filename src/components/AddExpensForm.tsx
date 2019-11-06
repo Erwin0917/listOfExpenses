@@ -1,36 +1,7 @@
-import styled from '@emotion/styled';
 import { Formik } from 'formik';
 import React from 'react';
-import Input from './Input';
-
-const AddExpensFormStyles = styled.div`
-	width: 100%;
-	margin: 40px 0;
-
-	.addExpenseForm {
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-	}
-`;
-
-const InputStyles = styled(Input)`
-	width: 250px;
-`;
-
-const LabelStyles = styled.label`
-	font-size: 1.8rem;
-	margin-right: 10px;
-	font-weight: 600;
-	min-width: 150px;
-`;
-
-const InputWrapperStyles = styled.div`
-	width: 100%;
-	display: flex;
-	align-items: center;
-	margin: 20px 0;
-`;
+import { AddExpensFormStyles, InputWrapperStyles, LabelStyles } from '../styles/AddExpensFormStyle';
+import { InputStyles } from '../styles/UI/InputStyles';
 
 const AddExpensForm = () => {
 	const titleInputName = 'title';
