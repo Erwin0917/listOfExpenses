@@ -1,4 +1,5 @@
 import { css, Global } from '@emotion/core';
+import { observer } from 'mobx-react';
 import React from 'react';
 import AddExpensForm from '../components/AddExpensForm';
 import AppWrapper from '../components/AppWrapper';
@@ -7,7 +8,7 @@ import Header from '../components/Header';
 import Summary from '../components/Summary';
 import { GlobalStyles } from '../styles/global/GlobalStyles';
 
-const App = () => {
+const App = observer(() => {
 	return (
 		<div className='App'>
 			<Global
@@ -23,6 +24,6 @@ const App = () => {
 			</AppWrapper>
 		</div>
 	);
-};
+});
 
 export default App;
