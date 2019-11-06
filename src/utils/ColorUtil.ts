@@ -16,7 +16,7 @@ export class ColorUtil {
 			: null;
 	};
 
-	public static hexToRgba = (hex: string, alpha: number) => {
+	public static hexToRgba = (hex: string, alpha: number): string | undefined => {
 		const color = ColorUtil.hexToRgb(hex);
 		if (!color) return;
 		return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;

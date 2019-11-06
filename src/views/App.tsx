@@ -1,8 +1,9 @@
+import { css, Global } from '@emotion/core';
 import React from 'react';
-import { Global, css } from '@emotion/core';
-import { GlobalStyles } from '../styles/global/GlobalStyles';
+import AddExpensForm from '../components/AddExpensForm';
 import AppWrapper from '../components/AppWrapper';
 import Header from '../components/Header';
+import { GlobalStyles } from '../styles/global/GlobalStyles';
 
 const App = () => {
 	return (
@@ -14,20 +15,7 @@ const App = () => {
 			/>
 			<AppWrapper>
 				<Header />
-
-				<div>
-					<form>
-						<div>
-							<label>Title of transaction</label>
-							<input type='text' />
-						</div>
-						<div>
-							<label>Amount (in PLN)</label>
-							<input type='text' />
-						</div>
-						<button>ADD</button>
-					</form>
-				</div>
+				<AddExpensForm />
 
 				<table>
 					<thead>
