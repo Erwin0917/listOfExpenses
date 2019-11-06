@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import { AddExpensFormStyles, InputWrapperStyles, LabelStyles } from '../styles/AddExpensFormStyle';
 import { InputStyles } from '../styles/UI/InputStyles';
+import Button from './UI/Button';
 
 const AddExpensForm = () => {
 	const titleInputName = 'title';
@@ -44,8 +45,8 @@ const AddExpensForm = () => {
 								value={values.amount}
 							/>
 							{errors.amount && touched.amount && errors.amount}
-							<button type='submit'>ADD</button>
 						</InputWrapperStyles>
+						<Button type='submit'>ADD</Button>
 					</form>
 				)}
 			</Formik>
