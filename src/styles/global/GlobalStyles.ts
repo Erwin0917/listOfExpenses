@@ -11,6 +11,7 @@ export const GlobalStyles = css`
 		font-family: 'Lato', sans-serif;
 		font-size: 10px;
 		background-color: ${Color.BACKGROUND_PAGE};
+		color: ${Color.TEXT_DARK};
 	}
 
 	body {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/core';
 import { GlobalStyles } from '../styles/global/GlobalStyles';
 import AppWrapper from '../components/AppWrapper';
+import Header from '../components/Header';
 
 const App = () => {
 	return (
@@ -12,12 +13,7 @@ const App = () => {
 				`}
 			/>
 			<AppWrapper>
-				<header>
-					<h1>List of expenses</h1>
-					<div>
-						<p>1 EUR = 4,382 PLN</p>
-					</div>
-				</header>
+				<Header />
 
 				<div>
 					<form>

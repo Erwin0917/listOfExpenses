@@ -5,6 +5,6 @@ export const AppWrapperStyle = styled.div`
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 1000px;
+	max-width: 900px;
 	padding: 40px;
 `;
