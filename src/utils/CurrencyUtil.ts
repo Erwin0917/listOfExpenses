@@ -5,6 +5,6 @@ export class CurrencyUtil {
 		const plnRate = M.store.currencyRate.PLN;
 		if (!plnRate) return 0;
 
-		return plnRate * value;
+		return value / plnRate;
 	};
 }

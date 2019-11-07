@@ -4,6 +4,7 @@ import { Color } from './const/Color';
 import { MediaQuery } from './const/Media';
 
 export const CurrencyRateStyles = styled.div`
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,5 +17,29 @@ export const CurrencyRateStyles = styled.div`
 
 	${MediaQuery.TABLET} {
 		margin: 20px 0;
+	}
+
+	.currency__updatePanel {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		border: 0;
+		padding: 8px 15px;
+		color: white;
+		font-size: 1.4rem;
+		font-weight: bold;
+		background-color: ${Color.ACCENT_SECOND};
+		opacity: 0.6;
+		transition: opacity 0.2s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.CurrencyUpdatePanel {
+		position: absolute;
+		top: 100%;
+		left: 0;
 	}
 `;

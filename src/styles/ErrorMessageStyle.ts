@@ -6,4 +6,5 @@ export const ErrorMessageStyles = styled.p`
 	width: 100%;
 	text-align: right;
 	padding: 0 10px;
+	font-size: 1rem;
 `;
