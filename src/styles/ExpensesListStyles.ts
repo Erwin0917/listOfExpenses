@@ -6,4 +6,5 @@ export const ExpensesListStyles = styled.div`
 	padding: 20px;
 	border-radius: 4px;
 	width: 100%;
+	margin: 20px 0;
 `;
