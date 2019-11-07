@@ -1,7 +1,9 @@
 import { IApp } from '../interfaces/IApp';
-import { ExpensesListModel } from './ExpensesListModel';
+import { MainStore } from '../store/MainStore';
+import { EnvironmentModel } from './EnvironmentModel';
 
 export class M {
-	public static store = new ExpensesListModel();
-	public static app: IApp = null;
+	public static env: EnvironmentModel;
+	public static store: MainStore;
+	public static app: IApp;
 }

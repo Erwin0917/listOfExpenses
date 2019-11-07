@@ -1,13 +1,24 @@
 import { AppActions } from '../actions/AppActions';
 import { AppStatus } from '../const/AppStatus';
-import { ExpensesListModel } from '../models/ExpensesListModel';
+import { EnvironmentModel } from '../models/EnvironmentModel';
 import { M } from '../models/M';
 import { App } from '../store/App';
+import { MainStore } from '../store/MainStore';
 
+declare global {
+	interface Window {
+		M: any;
+	}
+}
 export class AppInitializer {
 	public static setup() {
-		M.store = new ExpensesListModel();
+		M.env = new EnvironmentModel();
+		M.store = new MainStore();
 		M.app = new App();
+
+		if (M.env.isDev) {
+			window.M = M;
+		}
 	}
 
 	public static async init() {

@@ -1,30 +1,32 @@
 import { Formik } from 'formik';
 import React from 'react';
+import * as Yup from 'yup';
 import {
 	AddExpensFormStyles,
 	AddExpensInputStyles,
 	InputWrapperStyles,
 	LabelStyles
 } from '../styles/AddExpensFormStyle';
+import { ErrorMessageStyles } from '../styles/ErrorMessageStyle';
 import Button from './UI/Button';
 
-const AddExpensForm = () => {
-	const titleInputName = 'title';
-	const amountInputnae = 'amount';
+const titleInputName = 'title';
+const amountInputName = 'amount';
 
+const AddExpenseSchema = Yup.object().shape({
+	[titleInputName]: Yup.string()
+		.min(5, 'Too Short! Min 5 letters')
+		.max(100, 'Too Long! Max 100 letters')
+		.required('Required'),
+	[amountInputName]: Yup.number().required('Required')
+});
+
+const AddExpensForm = () => {
 	return (
 		<AddExpensFormStyles>
 			<Formik
-				initialValues={{ title: '', amount: '' }}
-				validate={values => {
-					const errors = {};
-					// if (!values.email) {
-					// 	errors.email = 'Required';
-					// } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-					// 	errors.email = 'Invalid email address';
-					// }
-					return errors;
-				}}
+				initialValues={{ [titleInputName]: '', [amountInputName]: '' }}
+				validationSchema={AddExpenseSchema}
 				onSubmit={values => {}}>
 				{({ values, errors, touched, handleChange, handleSubmit }) => (
 					<form className='addExpenseForm' onSubmit={handleSubmit}>
@@ -37,18 +39,20 @@ const AddExpensForm = () => {
 								onChange={handleChange}
 								value={values.title}
 							/>
-							{errors.title && touched.title && errors.title}
+							{errors.title && touched.title ? <ErrorMessageStyles>{errors.title}</ErrorMessageStyles> : null}
 						</InputWrapperStyles>
 						<InputWrapperStyles>
-							<LabelStyles htmlFor={amountInputnae}>Amount (in PLN)</LabelStyles>
+							<LabelStyles htmlFor={amountInputName}>Amount (in PLN)</LabelStyles>
 							<AddExpensInputStyles
-								id={amountInputnae}
-								type={amountInputnae}
-								name={amountInputnae}
+								id={amountInputName}
+								type={amountInputName}
+								name={amountInputName}
 								onChange={handleChange}
 								value={values.amount}
 							/>
-							{errors.amount && touched.amount && errors.amount}
+							{errors.amount && touched.amount ? (
+								<ErrorMessageStyles>{errors.amount}</ErrorMessageStyles>
+							) : null}
 						</InputWrapperStyles>
 						<Button type='submit'>ADD</Button>
 					</form>
