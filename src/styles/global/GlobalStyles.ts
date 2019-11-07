@@ -1,6 +1,6 @@
+import { css } from '@emotion/core';
 import { Color } from './../const/Color';
 import { ResetStyles } from './ResetStyle';
-import { css } from '@emotion/core';
 
 export const GlobalStyles = css`
 	${ResetStyles}
@@ -16,5 +16,9 @@ export const GlobalStyles = css`
 
 	body {
 		padding: 40px;
+	}
+
+	.notification: before {
+		display: none;
 	}
 `;
