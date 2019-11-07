@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import { observer } from 'mobx-react';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as Yup from 'yup';
 import { CurrencyActions } from '../actions/CurrencyActions';
 import { Currency } from '../const/Currence';
@@ -16,10 +16,27 @@ const ChangeRateSchema = Yup.object().shape({
 
 type Props = {
 	onUpdateHandler: () => void;
+	onClickOutOfPanel: () => void;
 };
 
 const CurrencyUpdatePanel = observer((props: Props) => {
 	const initialPLNValue = M.store.currencyRate.PLN;
+	const refUpdatePanel = useRef();
+
+	useEffect(() => {
+		window.addEventListener('click', outsideClickListener);
+
+		return () => window.removeEventListener('click', outsideClickListener);
+	});
+
+	const outsideClickListener = (event: Event) => {
+		const element = refUpdatePanel.current as HTMLElement;
+		const target = event.target as HTMLElement;
+
+		if (!element.contains(target)) {
+			props.onClickOutOfPanel();
+		}
+	};
 
 	const handleManuallyUpdate = (values: any) => {
 		props.onUpdateHandler();
@@ -30,7 +47,7 @@ const CurrencyUpdatePanel = observer((props: Props) => {
 	};
 
 	return (
-		<CurrencyUpdatePanelStyles className='CurrencyUpdatePanel'>
+		<CurrencyUpdatePanelStyles className='CurrencyUpdatePanel' ref={refUpdatePanel}>
 			<Formik
 				enableReinitialize={true}
 				initialValues={{ amount: initialPLNValue }}
