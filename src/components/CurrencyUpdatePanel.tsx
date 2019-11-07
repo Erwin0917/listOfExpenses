@@ -39,10 +39,11 @@ const CurrencyUpdatePanel = observer((props: Props) => {
 	};
 
 	const handleManuallyUpdate = (values: any) => {
-		props.onUpdateHandler();
 		CurrencyActions.setCurrencyValue(Currency.PLN, values.amount);
+		props.onUpdateHandler();
 	};
-	const handleUpdateFromInternet = () => {
+	const handleUpdateFromInternet = async () => {
+		await CurrencyActions.updateCurrencyFromApi();
 		props.onUpdateHandler();
 	};
 
