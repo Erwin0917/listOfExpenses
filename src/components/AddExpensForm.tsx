@@ -29,7 +29,8 @@ type FormProps = {
 
 const AddExpensForm = () => {
 	const handleSubmit = ({ title, amount }: FormProps, { resetForm }: any) => {
-		ExpensesActions.add(title, parseInt(amount));
+		amount = (+amount).toFixed(2);
+		ExpensesActions.add(title, +amount);
 		resetForm({});
 	};
 	return (
