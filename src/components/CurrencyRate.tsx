@@ -1,12 +1,14 @@
+import { observer } from 'mobx-react';
 import React from 'react';
+import { M } from '../models/M';
 import { CurrencyRateStyles } from '../styles/CurrencyRateStyles';
 
-const CurrencyRate = () => {
+const CurrencyRate = observer(() => {
 	return (
 		<CurrencyRateStyles>
-			<p>1 EUR = 4,382 PLN</p>
+			<p>1 EUR = {M.store.currencyRate.PLN} PLN</p>
 		</CurrencyRateStyles>
 	);
-};
+});
 
 export default CurrencyRate;

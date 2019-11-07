@@ -28,8 +28,9 @@ type FormProps = {
 };
 
 const AddExpensForm = () => {
-	const handleSubmit = ({ title, amount }: FormProps) => {
+	const handleSubmit = ({ title, amount }: FormProps, { resetForm }: any) => {
 		ExpensesActions.add(title, parseInt(amount));
+		resetForm({});
 	};
 	return (
 		<AddExpensFormStyles>

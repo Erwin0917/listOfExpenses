@@ -2,7 +2,7 @@ import { observable } from 'mobx';
 
 export class CurrencyModel {
 	@observable
-	public PLN = 1;
+	public EUR: number = 1;
 	@observable
-	public EUR: number;
+	public PLN: number;
 }

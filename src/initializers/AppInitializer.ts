@@ -22,6 +22,7 @@ export class AppInitializer {
 	}
 
 	public static async init() {
+		M.store.currencyRate.PLN = 4.382;
 		// fake sleep
 		// await TranslationsManager.loadFromServer();
 		// await FunctionUtil.sleep(2000);

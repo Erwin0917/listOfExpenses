@@ -6,6 +6,7 @@ import { IExpense } from '../interfaces/IExpense';
 import { M } from '../models/M';
 import { ExpensesListStyles } from '../styles/ExpensesListStyles';
 import { TableStyles } from '../styles/TableStyles';
+import { CurrencyUtil } from '../utils/CurrencyUtil';
 import ButtonRemove from './UI/ButtonRemove';
 
 type Data = {
@@ -44,13 +45,17 @@ const columns = [
 const ExpensesList = observer(() => {
 	const generateData = () => {
 		const data: Data[] = [];
-		M.store.getExpenses.map(({ id, title, amount }: IExpense) => {
+		M.store.getExpenses.forEach(({ id, title, amount }: IExpense) => {
+			const amountPln = parseFloat(amount.toFixed(2)).toString();
+			const amountEur = parseFloat(CurrencyUtil.PLNtoEUR(amount).toFixed(2)).toString();
+			const options = <ButtonRemove onClick={() => ExpensesActions.remove(id)}>Delete</ButtonRemove>;
+
 			const espenseObject: Data = {
 				id,
 				title,
-				amountPln: amount.toString(),
-				amountEur: '20',
-				options: <ButtonRemove onClick={() => ExpensesActions.remove(id)}>Delete</ButtonRemove>
+				amountPln,
+				amountEur,
+				options
 			};
 
 			data.push(espenseObject);
