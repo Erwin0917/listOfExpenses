@@ -1,8 +1,8 @@
 import { observable } from 'mobx';
 import { AppStatus } from '../const/AppStatus';
-import { IApp } from './../interfaces/IApp';
+import { IApp } from '../interfaces/IApp';
 
-export class App implements IApp {
+export class AppModel implements IApp {
 	@observable
 	public status: AppStatus = null;
 }
