@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
+import { ExpensesActions } from '../actions/ExpensesActions';
 import {
 	AddExpensFormStyles,
 	AddExpensInputStyles,
@@ -21,13 +22,21 @@ const AddExpenseSchema = Yup.object().shape({
 	[amountInputName]: Yup.number().required('Required')
 });
 
+type FormProps = {
+	[titleInputName]: string;
+	[amountInputName]: string;
+};
+
 const AddExpensForm = () => {
+	const handleSubmit = ({ title, amount }: FormProps) => {
+		ExpensesActions.add(title, parseInt(amount));
+	};
 	return (
 		<AddExpensFormStyles>
 			<Formik
 				initialValues={{ [titleInputName]: '', [amountInputName]: '' }}
 				validationSchema={AddExpenseSchema}
-				onSubmit={values => {}}>
+				onSubmit={handleSubmit}>
 				{({ values, errors, touched, handleChange, handleSubmit }) => (
 					<form className='addExpenseForm' onSubmit={handleSubmit}>
 						<InputWrapperStyles>
